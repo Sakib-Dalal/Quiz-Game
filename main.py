@@ -1,3 +1,5 @@
+""" Code By Sakib Dalal"""
+
 from data import question_data
 from question_model import Question
 from quiz_brain import QuizBrain
@@ -12,5 +14,9 @@ for question in question_data:
 
 quiz = QuizBrain(q_list=question_bank)
 
-quiz.next_question()
-quiz.next_question()
+while quiz.still_has_question():
+    quiz.next_question()
+    print()
+
+print("You Have completed the Quiz!")
+print(f"Your final score is : {quiz.score}/{len(quiz.question_list)}")
